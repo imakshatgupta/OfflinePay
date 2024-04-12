@@ -1,12 +1,13 @@
-import React from 'react'
+import React  from 'react'
+import Navbar from '../components/Navbar/Navbar'
 
-function HomeOnline() {
+const HomeOnline = () => {
+
+
   return (
     <>
-    <Navbar/>
-    <DemoCarousel/>
-    <Hero/>
-  </>
+      <Navbar/>
+    </>
   )
 }
 
