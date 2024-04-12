@@ -13,7 +13,7 @@ const HeroOffline = () => {
       {/* First Row */}
       <div className="col-span-1 flex flex-col items-center justify-center space-y-3 ">
         {/* Icon 1 */}
-        <Link to='/'>
+        <Link to='/offline'>
         <button className='flex flex-col items-center justify-center bg-[#fdf8f8] shadow-lg rounded-lg pt-4 pb-3 pl-4 pr-4'>
           <QrCodeScannerIcon />
           <span>Scan QR</span>
@@ -23,14 +23,14 @@ const HeroOffline = () => {
       </div>
       <div className="col-span-1 flex flex-col items-center justify-center space-y-2">
         {/* Icon 2 */}
-        <Link to='/'>
+        <Link to='/qr'>
         <button className='flex flex-col items-center justify-center bg-[#fdf8f8]  shadow-lg rounded-lg pt-4 pb-3 pl-3 pr-3'>
           <CurrencyRupeeIcon />
           <span>Receive Money</span>
         </button>
         </Link>
       </div>
-      <Link to='/' className="col-span-1 flex flex-col items-center justify-center  space-y-2">
+      <Link to='/transactionOffline' className="col-span-1 flex flex-col items-center justify-center  space-y-2">
         {/* Icon 3 */}
         <button className='flex flex-col items-center justify-center bg-[#fdf8f8]  shadow-lg rounded-lg pt-4 pb-3'>
           <ReceiptLongIcon />
@@ -39,14 +39,14 @@ const HeroOffline = () => {
       </Link>
 
       {/* Second Row */}
-      <Link to='/' className="col-span-1 flex flex-col items-center justify-center space-y-2">
+      <Link to='/checkbalanceoffline' className="col-span-1 flex flex-col items-center justify-center space-y-2">
         {/* Icon 4 */}
         <button className='flex flex-col items-center justify-center bg-[#fdf8f8] shadow-lg rounded-lg pt-4 pb-3 pl-3 pr-3'>
           <AccountBalanceIcon />
           <span>Check Balance</span>
         </button>
       </Link>
-      <Link to='/' className="col-span-1 flex flex-col items-center justify-center space-y-2">
+      <Link to='/payUpi' className="col-span-1 flex flex-col items-center justify-center space-y-2">
         {/* Icon 5 */}
         <button className='flex flex-col items-center justify-center bg-[#fdf8f8] shadow-lg rounded-lg pt-4 pb-3 pl-2 pr-2'>
           <TollIcon />
