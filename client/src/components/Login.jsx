@@ -14,7 +14,7 @@ export default function Login() {
     setLoading(true);
     try {
       const res = await axios.post(
-        "https://vihaan007.netlify.app/users/login",
+        "https://vihaan007-xxnf.onrender.com/users/login",
         {
           userName,
           password,
