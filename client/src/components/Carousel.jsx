@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import Carousel1 from "../assets/Carousel1.webp";
-import Carousel2 from "../assets/Carousel2.png";
 import Carousel3 from "../assets/Carousel3.png";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
