@@ -12,7 +12,7 @@ const TransactionOffline = () => {
   const getUser = async () => {
     try {
       const res = await axios.get(
-        "https://vihaan007.onrender.com/users/getUser",
+        "https://vihaan007-xxnf.onrender.com/users/getUser",
         {
           headers: {
             Authorization: `${localStorage.getItem("userId")}`,

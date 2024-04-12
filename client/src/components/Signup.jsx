@@ -17,7 +17,7 @@ export default function Signup() {
     setLoading(true); // Set loading to true when submitting form
     try {
       const res = await axios.post(
-        "https://vihaan007.onrender.com/users/register",
+        "https://vihaan007-xxnf.onrender.com/users/register",
         {
           userName,
           fullName,
