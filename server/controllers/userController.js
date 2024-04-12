@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 const { enc } = require("crypto-js");
 const accountSid = "AC167cc4162af9a5b957a43c5f22ec43ba";
-const authToken = "33ad21c064e1c913dc258a7fcfc43e20";
+const authToken = "814a9f08b6318ea7e9b61078badb3ceb";
 const client = require("twilio")(accountSid, authToken);
 
 require("dotenv").config();
@@ -149,8 +149,7 @@ const sendMoneyOffline = async (req, res) => {
           from: "+12513143428",
           to: `+91${RecieverPhone}`,
         })
-        .then((message) => console.log(message.sid))
-        .done();
+        .then((message) => console.log(message.sid));
       client.messages
         .create({
           body: Sendermessage,
@@ -158,7 +157,7 @@ const sendMoneyOffline = async (req, res) => {
           to: `+91${SenderPhone}`,
         })
         .then((message) => console.log(message.sid))
-        .done();
+
       res.status(200).json({ message: "Amount Sent Successfully" });
     } else {
       console.log("Insufficient Balance or Wrong Pin");
@@ -169,7 +168,7 @@ const sendMoneyOffline = async (req, res) => {
           to: `+91${SenderPhone}`,
         })
         .then((message) => console.log(message.sid))
-        .done();
+        
       res.status(400).json({ message: "Insufficient Balance or Wrong Pin" });
     }
   } else if (choice == "2") {
@@ -188,7 +187,7 @@ const sendMoneyOffline = async (req, res) => {
           to: `+91${SenderPhone}`,
         })
         .then((message) => console.log(message.sid))
-        .done();
+      
       res.status(200).json({ balance: sender.amount });
     } else {
       console.log("Wrong Pin");
@@ -199,7 +198,6 @@ const sendMoneyOffline = async (req, res) => {
           to: `+91${SenderPhone}`,
         })
         .then((message) => console.log(message.sid))
-        .done();
       res.status(400).json({ message: "Wrong Pin" });
     }
   } else if (choice == "3") {
@@ -216,7 +214,6 @@ const sendMoneyOffline = async (req, res) => {
         to: `+91${SenderPhone}`,
       })
       .then((message) => console.log(message.sid))
-      .done();
     res.status(200).json({ last5Transactions });
   } else {
     console.log("Invalid Option");
@@ -227,7 +224,6 @@ const sendMoneyOffline = async (req, res) => {
         to: `+91${SenderPhone}`,
       })
       .then((message) => console.log(message.sid))
-      .done();
     res.status(400).json({ message: "Invalid Option" });
   }
 };
