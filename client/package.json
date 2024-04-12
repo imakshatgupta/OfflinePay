@@ -14,11 +14,20 @@
     "@emotion/styled": "^11.11.5",
     "@mui/icons-material": "^5.15.15",
     "@mui/material": "^5.15.15",
+    "@yudiel/react-qr-scanner": "^2.0.0-beta.3",
     "axios": "^1.6.8",
+    "bcryptjs": "^2.4.3",
+    "crypto-js": "^4.2.0",
+    "jsonwebtoken": "^9.0.2",
+    "msgpack-lite": "^0.1.26",
+    "pako": "^2.1.0",
+    "qrcode.react": "^3.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.1",
     "react-responsive-carousel": "^3.2.23",
-    "react-router-dom": "^6.22.3"
+    "react-router-dom": "^6.22.3",
+    "tweetnacl": "^1.0.3"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
