@@ -32,10 +32,7 @@ const TransactionOffline = () => {
   const encrypt = btoa(JSON.stringify(data));
 
   const handleSubmit = async () => {
-    await getUser();
-    if (!senderId) {
-      return;
-    }
+
     const smsLink = `sms:+919350728474?body=${encrypt}%0A`;
     window.open(smsLink);
   };
