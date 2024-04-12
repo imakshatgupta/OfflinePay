@@ -20,7 +20,7 @@ const PORT = process.env.PORT || 8000;
 dbConnect();
 
 app.get("/", async (req, res) => {
-  res.redirect("http://localhost:3000/");
+  res.redirect("https://vihaan007.netlify.app");
 });
 
 app.use("/users", userRoutes);
