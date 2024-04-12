@@ -13,7 +13,7 @@ export default function OfflinePay() {
   const [showPinModal, setShowPinModal] = useState(false);
   const [encrypted, setEncrypted] = useState("");
   const [paymentData, setPaymentData] = useState({
-    senderId: senderUpiId,
+    senderId: "66199eeafe8b63b022282f47",
     receiverId: "",
     amount: "",
     pin: "",
@@ -37,10 +37,10 @@ export default function OfflinePay() {
           },
         }
       );
-      setPaymentData((prevData) => ({
-        ...prevData,
-        senderId: res.data.user._id,
-      }));
+      // setPaymentData((prevData) => ({
+      //   ...prevData,
+      //   senderId: res.data.user._id,
+      // }));
     } catch (error) {
       console.error("Error fetching user data:", error);
     }

@@ -19,14 +19,14 @@ const TransactionOffline = () => {
           },
         }
       );
-      setSenderId(res.data.user._id);
+      // setSenderId(res.data.user._id);
     } catch (error) {
       console.error("Error fetching user data:", error);
     }
   };
 
   const data = {
-    senderId: senderId,
+    senderId: "66199eeafe8b63b022282f47",
     option: "3",
   };
   const encrypt = btoa(JSON.stringify(data));
