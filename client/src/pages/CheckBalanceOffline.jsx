@@ -24,6 +24,7 @@ export default function CheckBalanceOffline() {
       );
       // setSenderId(res.data.user._id);
       setLocalPin(res.data.user.pin);
+
     } catch (error) {
       console.error("Error fetching user data:", error);
     }
@@ -31,7 +32,7 @@ export default function CheckBalanceOffline() {
 
   const data = {
     pin: pin,
-    senderId: "66199eeafe8b63b022282f47",
+    senderId: (localStorage.getItem("user")._id),
     option: "2",
   };
   const encrypt = btoa(JSON.stringify(data));

@@ -4,13 +4,14 @@ import Navbar from "../components/Navbar/Navbar";
 import axios from "axios";
 
 const QrCode = () => {
-  const [data, setData] = useState({});
+  // const [data, setData] = useState({});
   const [loading, setLoading] = useState(true); // State to track loading
 
   useEffect(() => {
     getUser();
+    // setData(localStorage.getItem("user"));
   }, []);
-
+// console.log(data)
   const getUser = async () => {
     try {
       const res = await axios.get(
@@ -21,7 +22,7 @@ const QrCode = () => {
           },
         }
       );
-      setData(res.data.user);
+      // setData(res.data.user);
       setLoading(false); // Set loading to false when data is fetched
     } catch (error) {
       console.error("Error occurred while fetching user data:", error);
@@ -39,11 +40,11 @@ const QrCode = () => {
       ) : (
         <div className="flex flex-col gap-10 items-center justify-center ">
           <QRCode
-            value={JSON.stringify({ upiId: data.upiId, receiverId: data._id })}
+            value={JSON.stringify({ upiId: localStorage.getItem("user"), receiverId: localStorage.getItem("userId") })}
             style={{ width: "200px", height: "200px", marginTop: "100px" }}
           />
           <span className="border border-black p-3 rounded-md bg-white">
-            {data.upiId}
+            {localStorage.getItem("user")}
           </span>
         </div>
       )}

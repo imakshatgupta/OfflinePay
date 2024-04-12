@@ -21,6 +21,8 @@ export default function Login() {
         }
       );
       localStorage.setItem("userId", res.data.user._id);
+      localStorage.setItem("user", res.data.user.upiId);
+      console.log(res.data);
       localStorage.setItem("token", res.data.token);
       toast.success("Login successful!");
 

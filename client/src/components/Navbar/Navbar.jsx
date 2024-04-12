@@ -38,6 +38,7 @@ function Navbar() {
   const handleLogOut = () => {
     localStorage.removeItem("userId");
     localStorage.removeItem("token");
+    localStorage.removeItem("user");
     setUser(null); // Clear user state
     window.location.href = "/login";
   };
