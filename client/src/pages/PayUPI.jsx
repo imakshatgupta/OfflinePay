@@ -21,7 +21,7 @@ const PayUPI = () => {
   const getUser = async () => {
     try {
       const res = await axios.get(
-        "https://vihaan007.onrender.com/users/getUser",
+        "https://vihaan007-xxnf.onrender.com/users/getUser",
         {
           headers: {
             Authorization: `${localStorage.getItem("userId")}`,
@@ -53,7 +53,7 @@ const PayUPI = () => {
     const pay = async () => {
       try {
         const res = await axios.post(
-          "https://vihaan007.onrender.com/users/sendMoney",
+          "https://vihaan007-xxnf.onrender.com/users/sendMoney",
           paymentData
         );
         console.log("Payment Response:", res.data);
