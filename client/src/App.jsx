@@ -11,6 +11,7 @@ import HomeOnline from './pages/HomeOnline'
 import HomeOffline from './pages/HomeOffline'
 import OfflinePay from './pages/OfflinePay'
 import PayUPI from './pages/PayUPI'
+import PayUPIOffline from './pages/PayUPIOffline'
 import CheckBalanceOffline from './pages/CheckBalanceOffline'
 import TransactionOffline from './pages/TransactionOffline'
 
@@ -26,6 +27,7 @@ function App() {
         <Route path='/qr' element={<QrCode />} />
         <Route path='/qrscanner' element={<QrScanner />} />
         <Route path='/payUpi' element={<PayUPI />} />
+        <Route path='/payUpiOffline' element={<PayUPIOffline />} />
         <Route path='/transaction' element={<Transaction />} />
         <Route path='/transactionOffline' element={<TransactionOffline />} />
         <Route path='/checkBalance' element={<CheckBalance />} />
