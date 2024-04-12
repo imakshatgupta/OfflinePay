@@ -176,6 +176,8 @@ export default function OfflinePay() {
               </div>
             </div>
           )}
+          <br></br>
+          <h1>Maximum Limit: 2000Rs.</h1>
         </div>
       </div>
     </>
