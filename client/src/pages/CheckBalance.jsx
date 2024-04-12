@@ -73,7 +73,8 @@ const CheckBalance = () => {
         <h1 className="text-2xl font-bold mb-6">Bank Balance</h1>
         {balance !== null ? (
           <div className="text-xl">
-            Your current balance: ₹ <span className="font-bold">{balance}</span>
+            Your current balance: ₹{" "}
+            <span className="font-bold">{balance}</span>
           </div>
         ) : (
           <div>Loading...</div>
@@ -81,29 +82,26 @@ const CheckBalance = () => {
 
         {/* Pin Modal */}
         {showPinModal && (
-          <div className="absolute inset-0 flex justify-center items-center bg-gray-800 bg-opacity-50">
-            <div className="modal-content bg-white p-4 rounded-md">
-              <label htmlFor="pin">Enter PIN:</label>
+          <div className="fixed inset-0 flex justify-center items-center bg-gray-900 bg-opacity-60">
+            <div className="modal-content bg-white p-4 rounded-md h-[250px]">
+              <label htmlFor="pin" className="font-bold block mb-2">
+                Enter PIN:
+              </label>
               <input
                 type="password"
                 id="pin"
                 value={pin}
                 onChange={(e) => setPin(e.target.value)}
-                className="block w-full border border-black rounded-md mt-2"
+                className="block w-full border border-gray-300 rounded-md px-3 py-2 mb-4"
               />
 
-              <div className="flex flex-col">
-                <div>
-                  <button
-                    onClick={handlePinSubmit}
-                    className="mt-3 bg-blue-500 text-white px-4 py-2 rounded-md"
-                  >
-                    Submit
-                  </button>
-                </div>
-                {/* <div>
-       <Link to="/checkbalanceoffline"><button className='mt-2 bg-blue-500 text-white px-4 py-2 rounded-md'>Check Offline</button></Link> 
-    </div> */}
+              <div className="flex justify-center">
+                <button
+                  onClick={handlePinSubmit}
+                  className="bg-blue-500 text-white px-4 py-2 rounded-md"
+                >
+                  Submit
+                </button>
               </div>
             </div>
           </div>
