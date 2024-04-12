@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { Toaster, toast } from 'react-hot-toast'; // Import toast from react-hot-toast
+import { Toaster, toast } from "react-hot-toast"; // Import toast from react-hot-toast
 import logo from "../assets/logo.png";
 
 export default function Login() {
@@ -9,30 +9,31 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false); // State to track loading
 
-  
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true); 
+    setLoading(true);
     try {
-      const res = await axios.post("https://dtu.onrender.com/users/login", {
-        userName,
-        password
-      });
+      const res = await axios.post(
+        "https://vihaan007.onrender.com/users/login",
+        {
+          userName,
+          password,
+        }
+      );
       localStorage.setItem("userId", res.data.user._id);
       localStorage.setItem("token", res.data.token);
       toast.success("Login successful!");
-     
+
       setTimeout(() => {
         window.location.href = "/";
       }, 1000);
     } catch (error) {
       console.error("Error occurred:", error);
-      toast.error("Login failed. Please try again."); 
+      toast.error("Login failed. Please try again.");
     } finally {
-      setLoading(false); 
+      setLoading(false);
     }
   };
-  
 
   return (
     <div>
@@ -114,7 +115,7 @@ export default function Login() {
           </div>
         </div>
       </section>
-      <Toaster position="bottom-center" /> 
+      <Toaster position="bottom-center" />
     </div>
   );
 }

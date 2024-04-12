@@ -16,14 +16,17 @@ export default function Signup() {
     e.preventDefault();
     setLoading(true); // Set loading to true when submitting form
     try {
-      const res = await axios.post("https://dtu.onrender.com/users/register", {
-        userName,
-        fullName,
-        email,
-        pin,
-        phoneNo,
-        password,
-      });
+      const res = await axios.post(
+        "https://vihaan007.onrender.com/users/register",
+        {
+          userName,
+          fullName,
+          email,
+          pin,
+          phoneNo,
+          password,
+        }
+      );
       console.log(res);
       window.location.href = "/login";
     } catch (error) {
