@@ -124,7 +124,7 @@ const QrScanner = () => {
                   >
                     &times;
                   </span>
-                  <p>UPI ID: {paymentData.receiverId}</p>
+                  <p>UPI ID: {paymentData.receiverUpi}</p>
                   <br />
                   <label htmlFor="amount">Enter Amount to Pay:</label>
                   <input
