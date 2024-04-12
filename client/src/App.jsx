@@ -1,17 +1,17 @@
-import './App.css'
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom'
+import './App.css'
 import HomeOnline from './pages/HomeOnline'
 import HomeOffline from './pages/HomeOffline'
 
+
 function App() {
-  
 
   return (
     <>
     <Router>
       <Routes>
-        <Route path="/" element={<HomeOnline />} />
-        <Route path='/offlinePay' element={<HomeOffline />} />
+        <Route path="/" element={<HomeOnline/>}/>
+        <Route path="/offlinepay" element={<HomeOffline/>}/>
       </Routes>
     </Router>
     </>
