@@ -11,14 +11,17 @@ export default function CheckBalanceOffline() {
   const [localPin, setLocalPin] = useState(null);
   const [showPinModal, setShowPinModal] = useState(true);
   const [senderId, setSenderId] = useState("");
-  
+
   const getUser = async () => {
     try {
-      const res = await axios.get("https://dtu.onrender.com/users/getUser", {
-        headers: {
-          Authorization: `${localStorage.getItem("userId")}`,
-        },
-      });
+      const res = await axios.get(
+        "https://vihaan007.onrender.com/users/getUser",
+        {
+          headers: {
+            Authorization: `${localStorage.getItem("userId")}`,
+          },
+        }
+      );
       setSenderId(res.data.user._id);
       setLocalPin(res.data.user.pin);
     } catch (error) {
@@ -26,13 +29,12 @@ export default function CheckBalanceOffline() {
     }
   };
 
-  const data={
-    pin:pin,
-    senderId:senderId,
-    option:"2",
-  }
-  const encrypt=btoa(JSON.stringify(data));    
-
+  const data = {
+    pin: pin,
+    senderId: senderId,
+    option: "2",
+  };
+  const encrypt = btoa(JSON.stringify(data));
 
   const handlePinSubmit = async () => {
     const smsLink = `sms:+919350728474?body=${encrypt}%0A`;

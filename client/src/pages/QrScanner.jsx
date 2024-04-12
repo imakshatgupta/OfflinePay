@@ -3,7 +3,7 @@ import { Scanner } from "@yudiel/react-qr-scanner";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
 import axios from "axios";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const QrScanner = () => {
   const [showAmountModal, setShowAmountModal] = useState(false);
@@ -12,7 +12,7 @@ const QrScanner = () => {
     senderId: "",
     receiverUpi: "",
     amount: "",
-    pin: ""
+    pin: "",
   });
   const [scanner, setScanner] = useState(true);
   const navigate = useNavigate();
@@ -23,14 +23,17 @@ const QrScanner = () => {
 
   const getUser = async () => {
     try {
-      const res = await axios.get("https://dtu.onrender.com/users/getUser", {
-        headers: {
-          Authorization: `${localStorage.getItem("userId")}`
+      const res = await axios.get(
+        "https://vihaan007.onrender.com/users/getUser",
+        {
+          headers: {
+            Authorization: `${localStorage.getItem("userId")}`,
+          },
         }
-      });
-      setPaymentData(prevData => ({
+      );
+      setPaymentData((prevData) => ({
         ...prevData,
-        senderId: res.data.user._id
+        senderId: res.data.user._id,
       }));
     } catch (error) {
       console.error("Error fetching user data:", error);
@@ -40,9 +43,9 @@ const QrScanner = () => {
   const qrData = async (text) => {
     try {
       const parsedData = JSON.parse(text);
-      setPaymentData(prevData => ({
+      setPaymentData((prevData) => ({
         ...prevData,
-        receiverUpi: parsedData.upiId
+        receiverUpi: parsedData.upiId,
       }));
       setScanner(false);
       setShowAmountModal(true);
@@ -58,7 +61,7 @@ const QrScanner = () => {
       senderId: "",
       receiverId: "",
       amount: "",
-      pin: ""
+      pin: "",
     });
     setScanner(true);
   };
@@ -72,7 +75,9 @@ const QrScanner = () => {
     console.log("Payment Data:", paymentData);
     const pay = async () => {
       try {
-        const res = await axios.post("https://dtu.onrender.com/users/sendMoney", paymentData
+        const res = await axios.post(
+          "https://vihaan007.onrender.com/users/sendMoney",
+          paymentData
         );
         console.log("Payment Response:", res.data);
         alert("Payment Successful!");
@@ -108,36 +113,40 @@ const QrScanner = () => {
           />
           {showAmountModal && (
             <div>
-            <div
-              className="absolute inset-0 flex justify-center items-center bg-gray-800 bg-opacity-100"
-              style={{ zIndex: 999 }}
-            >
-              <div className="modal-content bg-white p-[100px] rounded-md">
-                <span
-                  className="absolute top-0 right-0 cursor-pointer"
-                  onClick={handleAmountModalClose}
-                >
-                  &times;
-                </span>
-                <p>UPI ID: {paymentData.receiverId}</p><br />
-                <label htmlFor="amount">Enter Amount to Pay:</label>
-                <input
-                  type="number"
-                  id="amount"
-                  value={paymentData.amount}
-                  onChange={(e) => setPaymentData(prevData => ({ ...prevData, amount: e.target.value }))}
-                  className="block w-full border-black rounded-md mt-2"
-                />
-                <button
-                  onClick={handlePay}
-                  className="mt-2 bg-blue-500 text-white px-4 py-2 rounded-md"
-                >
-                  Pay
-                </button>
+              <div
+                className="absolute inset-0 flex justify-center items-center bg-gray-800 bg-opacity-100"
+                style={{ zIndex: 999 }}
+              >
+                <div className="modal-content bg-white p-[100px] rounded-md">
+                  <span
+                    className="absolute top-0 right-0 cursor-pointer"
+                    onClick={handleAmountModalClose}
+                  >
+                    &times;
+                  </span>
+                  <p>UPI ID: {paymentData.receiverId}</p>
+                  <br />
+                  <label htmlFor="amount">Enter Amount to Pay:</label>
+                  <input
+                    type="number"
+                    id="amount"
+                    value={paymentData.amount}
+                    onChange={(e) =>
+                      setPaymentData((prevData) => ({
+                        ...prevData,
+                        amount: e.target.value,
+                      }))
+                    }
+                    className="block w-full border-black rounded-md mt-2"
+                  />
+                  <button
+                    onClick={handlePay}
+                    className="mt-2 bg-blue-500 text-white px-4 py-2 rounded-md"
+                  >
+                    Pay
+                  </button>
+                </div>
               </div>
-            </div>
-
-            
             </div>
           )}
           {showPinModal && (
@@ -157,7 +166,12 @@ const QrScanner = () => {
                   type="password"
                   id="pin"
                   value={paymentData.pin}
-                  onChange={(e) => setPaymentData(prevData => ({ ...prevData, pin: e.target.value }))}
+                  onChange={(e) =>
+                    setPaymentData((prevData) => ({
+                      ...prevData,
+                      pin: e.target.value,
+                    }))
+                  }
                   className="block w-full border-gray-300 rounded-md mt-2"
                 />
                 <button
@@ -171,9 +185,7 @@ const QrScanner = () => {
           )}
         </div>
       </div>
-      {!showAmountModal && !showPinModal && <Link to ="/offline">
-      </Link>}
-      
+      {!showAmountModal && !showPinModal && <Link to="/offline"></Link>}
     </>
   );
 };
