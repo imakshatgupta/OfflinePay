@@ -20,7 +20,7 @@ const PORT = process.env.PORT || 8000;
 dbConnect();
 
 app.get("/", async (req, res) => {
-  res.redirect("http://localhost:5173/");
+  res.redirect("http://localhost:3000/");
 });
 
 app.use("/users", userRoutes);
