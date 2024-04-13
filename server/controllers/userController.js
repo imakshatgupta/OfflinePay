@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 const { enc } = require("crypto-js");
 const accountSid = "AC87a4dee030cf415e33ea9698c520bd21";
-const authToken = "e25e0e9930b083d1472589f31da500da";
+const authToken = "05748765895ffb447c395fc0cd13401a";
 const client = require("twilio")(accountSid, authToken);
 
 require("dotenv").config();
