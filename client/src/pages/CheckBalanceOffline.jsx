@@ -32,9 +32,10 @@ export default function CheckBalanceOffline() {
 
   const data = {
     pin: pin,
-    senderId: (localStorage.getItem("user")._id),
+    senderId: (localStorage.getItem("userId")),
     option: "2",
   };
+  console.log(data);
   const encrypt = btoa(JSON.stringify(data));
 
   const handlePinSubmit = async () => {

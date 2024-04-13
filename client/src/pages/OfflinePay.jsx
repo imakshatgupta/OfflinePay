@@ -13,7 +13,7 @@ export default function OfflinePay() {
   const [showPinModal, setShowPinModal] = useState(false);
   const [encrypted, setEncrypted] = useState("");
   const [paymentData, setPaymentData] = useState({
-    senderId: "66199eeafe8b63b022282f47",
+    senderId: (localStorage.getItem("userId")),
     receiverId: "",
     amount: "",
     pin: "",

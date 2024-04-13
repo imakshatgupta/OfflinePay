@@ -7,7 +7,7 @@ const PayUPI = () => {
   const [showAmountModal, setShowAmountModal] = useState(false); // New state for amount modal
   const [showPinModal, setShowPinModal] = useState(false);
   const [paymentData, setPaymentData] = useState({
-    senderId: "66199eeafe8b63b022282f47",
+    senderId: (localStorage.getItem("userId")),
     receiverId: "",
     amount: "",
     pin: "",
