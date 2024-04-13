@@ -2,8 +2,8 @@ const User = require("../models/userModel.js");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 const { enc } = require("crypto-js");
-const accountSid = "AC167cc4162af9a5b957a43c5f22ec43ba";
-const authToken = "814a9f08b6318ea7e9b61078badb3ceb";
+const accountSid = "AC87a4dee030cf415e33ea9698c520bd21";
+const authToken = "e25e0e9930b083d1472589f31da500da";
 const client = require("twilio")(accountSid, authToken);
 
 require("dotenv").config();
@@ -146,17 +146,17 @@ const sendMoneyOffline = async (req, res) => {
       client.messages
         .create({
           body: Recievermessage,
-          from: "+12513143428",
+          from: "+13344714125",
           to: `+91${RecieverPhone}`,
         })
         .then((message) => console.log(message.sid));
       client.messages
         .create({
           body: Sendermessage,
-          from: "+12513143428",
+          from: "+13344714125",
           to: `+91${SenderPhone}`,
         })
-        .then((message) => console.log(message.sid))
+        .then((message) => console.log(message.sid));
 
       res.status(200).json({ message: "Amount Sent Successfully" });
     } else {
@@ -164,11 +164,11 @@ const sendMoneyOffline = async (req, res) => {
       client.messages
         .create({
           body: "Transaction Failed due to Insufficient Balance or Wrong Pin",
-          from: "+12513143428",
+          from: "+13344714125",
           to: `+91${SenderPhone}`,
         })
-        .then((message) => console.log(message.sid))
-        
+        .then((message) => console.log(message.sid));
+
       res.status(400).json({ message: "Insufficient Balance or Wrong Pin" });
     }
   } else if (choice == "2") {
@@ -183,21 +183,21 @@ const sendMoneyOffline = async (req, res) => {
       client.messages
         .create({
           body: Sendermessage,
-          from: "+12513143428",
+          from: "+13344714125",
           to: `+91${SenderPhone}`,
         })
-        .then((message) => console.log(message.sid))
-      
+        .then((message) => console.log(message.sid));
+
       res.status(200).json({ balance: sender.amount });
     } else {
       console.log("Wrong Pin");
       client.messages
         .create({
           body: "Unable to check balance due to Wrong Pin",
-          from: "+12513143428",
+          from: "+13344714125",
           to: `+91${SenderPhone}`,
         })
-        .then((message) => console.log(message.sid))
+        .then((message) => console.log(message.sid));
       res.status(400).json({ message: "Wrong Pin" });
     }
   } else if (choice == "3") {
@@ -210,20 +210,20 @@ const sendMoneyOffline = async (req, res) => {
     client.messages
       .create({
         body: `Last 5 Transactions: ${last5Transactions}`,
-        from: "+12513143428",
+        from: "+13344714125",
         to: `+91${SenderPhone}`,
       })
-      .then((message) => console.log(message.sid))
+      .then((message) => console.log(message.sid));
     res.status(200).json({ last5Transactions });
   } else {
     console.log("Invalid Option");
     client.messages
       .create({
         body: "Invalid Option",
-        from: "+12513143428",
+        from: "+13344714125",
         to: `+91${SenderPhone}`,
       })
-      .then((message) => console.log(message.sid))
+      .then((message) => console.log(message.sid));
     res.status(400).json({ message: "Invalid Option" });
   }
 };
