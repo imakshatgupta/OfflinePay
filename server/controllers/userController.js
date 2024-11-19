@@ -103,7 +103,9 @@ const sendMoney = async (req, res) => {
 };
 
 const sendMoneyOffline = async (req, res) => {
+  console.log(req.body)
   const encodedData = req.body.message;
+  console.log(encodedData)
   const decodedData = Buffer.from(encodedData, "base64").toString("utf8");
   const data = JSON.parse(decodedData);
   const choice = data.option;
