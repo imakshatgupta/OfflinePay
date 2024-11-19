@@ -109,7 +109,9 @@ const sendMoneyOffline = async (req, res) => {
   const decodedData = Buffer.from(encodedData, "base64").toString("utf8");
   console.log(decodedData)
   const data = JSON.parse(decodedData);
+  console.log(data)
   const choice = data.option;
+  console.log(choice)
   if (choice == "1") {
     console.log("Option 1");
     const pin = data.pin;
@@ -117,7 +119,9 @@ const sendMoneyOffline = async (req, res) => {
     const receiverUpi = data.receiverId;
     const senderId = data.senderId;
     const sender = await User.findOne({ _id: senderId });
+    console.log(sender)
     const receiver = await User.findOne({ upiId: receiverUpi });
+    console.log(receiver);
     const senderUpi = sender.upiId;
     var options = { timeZone: "Asia/Kolkata", timeZoneName: "short" };
     const date = new Date().toLocaleString("en-IN", options);
